@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
+import { UserRequestApiService } from './user-http/user-request-api.service';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { SearchComponent } from './search/search.component';
 import { SearchReposComponent } from './search-repos/search-repos.component';
+
+const routes: Routes = [];
 
 @NgModule({
   declarations: [
@@ -16,9 +22,12 @@ import { SearchReposComponent } from './search-repos/search-repos.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule,
+    FormsModule,
+    [RouterModule.forRoot(routes)],
   ],
-  providers: [],
+  providers: [UserRequestApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
