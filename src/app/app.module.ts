@@ -10,15 +10,24 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './nav/nav.component';
 import { SearchComponent } from './search/search.component';
 import { SearchReposComponent } from './search-repos/search-repos.component';
+import { SearchUserComponent } from './search-user/search-user.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:"home",component:SearchComponent},
+  {path:"search-user",component:SearchUserComponent},
+  {path:"search-repos",component:SearchReposComponent},
+  {path:"",redirectTo:"/home",pathMatch:"full"},
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     SearchComponent,
-    SearchReposComponent
+    SearchReposComponent,
+    SearchUserComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
