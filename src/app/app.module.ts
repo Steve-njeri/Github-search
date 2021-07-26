@@ -13,6 +13,7 @@ import { SearchReposComponent } from './search-repos/search-repos.component';
 import { SearchUserComponent } from './search-user/search-user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BoldenPipe } from './bolden.pipe';
+import { ChangecolorDirective } from './changecolor.directive';
 
 const routes: Routes = [
   {path:"home",component:SearchComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
     SearchReposComponent,
     SearchUserComponent,
     NotFoundComponent,
-    BoldenPipe
+    BoldenPipe,
+    ChangecolorDirective
   ],
   imports: [
     BrowserModule,
