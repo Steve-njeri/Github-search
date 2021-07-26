@@ -55,7 +55,8 @@
         <div class="panel-body">
             <h3 class="m-5"><i class="bi bi-folder"></i> Repositories</h3>
         </div>
-        <div class="panel-body" *ngFor="let repo of repos">
+        <hr>
+        <div class="panel-body" *ngFor="let repo of repos" class="mb-3 p-2">
             <div class="row">
                 <div class="col-sm-12">
                     <h4  appChangecolor>{{repo.name|bolden}}</h4>
