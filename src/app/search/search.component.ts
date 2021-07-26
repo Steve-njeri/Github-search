@@ -10,6 +10,7 @@ import { User } from '../user';
 })
 export class SearchComponent implements OnInit {
   repos: any[];
+  username: string;
   user: User;
     
   constructor(private userRequestService:UserRequestApiService) { 
@@ -17,6 +18,15 @@ export class SearchComponent implements OnInit {
     this.user = this.userRequestService.user;
 
     this.userRequestService.getMyRepos();
+    this.repos = this.userRequestService.reposArray;
+  }
+
+  findUser(){
+    this.userRequestService.updateProfile(this.username);
+    this.userRequestService.getUser();
+    this.user = this.userRequestService.user;
+
+    this.userRequestService.getRepos();
     this.repos = this.userRequestService.reposArray;
   }
 

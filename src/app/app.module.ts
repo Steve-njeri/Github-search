@@ -12,12 +12,13 @@ import { SearchComponent } from './search/search.component';
 import { SearchReposComponent } from './search-repos/search-repos.component';
 import { SearchUserComponent } from './search-user/search-user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { BoldenPipe } from './bolden.pipe';
 
 const routes: Routes = [
-  {path:"home",component:SearchUserComponent},
-  // {path:"search-user",component:SearchComponent},
-  // {path:"search-repos",component:SearchReposComponent},
-  // {path:"",redirectTo:"/home",pathMatch:"full"},
+  {path:"home",component:SearchComponent},
+  {path:"search-user",component:SearchUserComponent},
+  {path:"search-repos",component:SearchReposComponent},
+  {path:"",redirectTo:"/home",pathMatch:"full"},
   // {path:'**',component:NotFoundComponent}
 ];
 
@@ -28,7 +29,8 @@ const routes: Routes = [
     SearchComponent,
     SearchReposComponent,
     SearchUserComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    BoldenPipe
   ],
   imports: [
     BrowserModule,
