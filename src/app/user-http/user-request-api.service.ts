@@ -16,10 +16,6 @@ export class UserRequestApiService {
   public repository: Repository;
   public reposArray: any = [];
 
-  apiUrl:"https://api.github.com"
-  clientId:"abeb90549ecafe81772b"
-  clientSecret: "045cee6191464590b656b150087fd37724d5454c"
-
   constructor(private http:Http) { 
     this.userName = "Steve-njeri";
     this.user= new User("","","","","");
@@ -28,7 +24,7 @@ export class UserRequestApiService {
 
   getMyUser (){
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get("https://api.github.com" + this.endpoint + "Steve-njeri" + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret).toPromise().then(
+      this.http.get("https://api.github.com" + this.endpoint + "Steve-njeri" + "?client_id=" + environment.clientId + "&client_secret=" + environment.clientSecret).toPromise().then(
         res => {
           this.user.user = res.json().name;
           this.user.login = res.json().login;
@@ -47,7 +43,7 @@ export class UserRequestApiService {
 
   getUser() {
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get("https://api.github.com" + this.endpoint + this.userName + "?client_id=" + this.clientId + "&client_secret=" + this.clientSecret).toPromise().then(
+      this.http.get("https://api.github.com" + this.endpoint + this.userName + "?client_id=" + environment.clientId + "&client_secret=" + environment.clientSecret).toPromise().then(
         res => {
           this.user.user = res.json().name;
           this.user.login = res.json().login;
@@ -66,7 +62,7 @@ export class UserRequestApiService {
 
   getMyRepos() {
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get("https://api.github.com" + this.endpoint + "Steve-njeri" + "/repos?client_id=" + this.clientId + "&client_secret=" + this.clientSecret).toPromise().then(
+      this.http.get("https://api.github.com" + this.endpoint + "Steve-njeri" + "/repos?client_id=" + environment.clientId + "&client_secret=" + environment.clientSecret).toPromise().then(
         res => {
           for (let repo of res.json()){
             this.repository.name = repo.name;
@@ -88,7 +84,7 @@ export class UserRequestApiService {
   getRepos() {
     this.reposArray = [];
     let promise = new Promise<void>((resolve, reject) => {
-      this.http.get("https://api.github.com" + this.endpoint + this.userName + "/repos?client_id=" + this.clientId + "&client_secret=" + this.clientSecret).toPromise().then(
+      this.http.get("https://api.github.com" + this.endpoint + this.userName + "/repos?client_id=" + environment.clientId + "&client_secret=" + environment.clientSecret).toPromise().then(
         res => {
           for (let repo of res.json()){
             this.repository.name = repo.name;
