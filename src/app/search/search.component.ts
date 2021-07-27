@@ -9,7 +9,7 @@ import { User } from '../user';
 })
 export class SearchComponent implements OnInit {
 
-  user: User;
+  user!: User;
     
   constructor(private userService:UserRequestApiService) { }
 

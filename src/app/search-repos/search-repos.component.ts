@@ -8,7 +8,7 @@ import { Repository } from '../repository';
   styleUrls: ['./search-repos.component.css'],
 })
 export class SearchReposComponent implements OnInit {
-  repositories: Repository[];
+  repositories: Repository[] = [];
 
   constructor(private searchService:UserRequestApiService) { }
 
