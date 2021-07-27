@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:"search-user",component:SearchUserComponent},
   {path:"search-repos",component:SearchReposComponent},
   {path:"",redirectTo:"/home",pathMatch:"full"},
-  // {path:'**',component:NotFoundComponent}
+
 ];
 
 @NgModule({
