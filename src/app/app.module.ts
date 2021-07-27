@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { UserRequestApiService } from './user-http/user-request-api.service';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -16,11 +16,10 @@ import { BoldenPipe } from './bolden.pipe';
 import { ChangecolorDirective } from './changecolor.directive';
 
 const routes: Routes = [
-  {path:"home",component:SearchComponent},
-  {path:"search-user",component:SearchUserComponent},
+  {path:"search",component:SearchComponent},
   {path:"search-repos",component:SearchReposComponent},
-  {path:"",redirectTo:"/home",pathMatch:"full"},
-
+  {path:"",redirectTo:"/search",pathMatch:"full"},
+  {path:'**',component:NotFoundComponent}
 ];
 
 @NgModule({
@@ -37,7 +36,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     [RouterModule.forRoot(routes)],
   ],

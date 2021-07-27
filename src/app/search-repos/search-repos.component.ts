@@ -1,27 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { UserRequestApiService } from '../user-http/user-request-api.service';
-import { User } from '../user';
+import { Repository } from '../repository';
 
 @Component({
   selector: 'app-search-repos',
   templateUrl: './search-repos.component.html',
   styleUrls: ['./search-repos.component.css'],
-  providers: [UserRequestApiService]
 })
 export class SearchReposComponent implements OnInit {
-  user: User;
-  repos:any[];
-  searchTerm:string;
+  repositories: Repository[];
 
-  constructor(private searchApi:UserRequestApiService) { }
+  constructor(private searchService:UserRequestApiService) { }
 
-  findRepos (){
-    this.searchApi.updateSearchTerm(this.searchTerm);
-    this.searchApi.searchRepos();
-    this.repos = this.searchApi.reposArray;
-  }
 
   ngOnInit(): void {
+    this.searchService.getRepositories();
+    this.repositories = this.searchService.repositories;
   }
 
 }
